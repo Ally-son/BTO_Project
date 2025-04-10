@@ -72,7 +72,7 @@ public class StorageController {
     /*
     Used to write the data in PROJECT into csv
      */
-    public void writeProjectFile(Map<String, ArrayList<String>> PROJECT){ //Replace userList.csv
+    public void writeProjectFile(Map<String, ArrayList<String>> PROJECT){ //Replace ProjectList.csv
         try{
             BufferedWriter obj = new BufferedWriter(new FileWriter("src/main/user_data/ProjectList.csv"));
             obj.write("Project Name,Neighborhood,Type 1,Number of units for Type 1,Selling price for Type 1,Type 2,Number of units for Type 2,Selling price for Type 2,Application opening date,Application closing date,Manager,Officer Slot,Officer\n");
@@ -116,6 +116,7 @@ public class StorageController {
         String ID = Integer.toString(nextEnquiryID);
         ENQUIRIES.put(ID, new Enquiry(ID, askerID, projectName, question, "NULL"));
         nextEnquiryID++;
+        writeEnquiryFile(ENQUIRIES);
         return ENQUIRIES;
     }
 
